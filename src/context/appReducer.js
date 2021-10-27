@@ -27,8 +27,6 @@ export function appReducer(state, action) {
 
         case "UPDATE_PRODUCT":
             let indiceElemento = state.products.findIndex(p => p.id === state.productEdit.id)
-            console.log(indiceElemento)
-            console.log(state.productEdit)
             let products = [...state.products]
             products[indiceElemento] = { id: state.productEdit.id, name: state.productName, image: state.image, price: state.price}
             console.log(products)

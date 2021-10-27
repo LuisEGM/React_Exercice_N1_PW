@@ -8,7 +8,7 @@ const Products = () => {
 
   return (
     <>
-      <div className="row justify-content-between px-3">
+      <div className="row justify-content-between">
         <div className="col-md-4">
           <p className="pt-3">10 Products</p>
         </div>
@@ -22,13 +22,13 @@ const Products = () => {
           </form>
         </div>
       </div>
-      <div className="row px-4">
+      <div className="row px-3">
         {products.map((p, i) => (
-          <div className="col-sm-4">
-              <ProductItem name={p.name} price={p.price} image={p.image} key={i} />
+          <div key={i} className="col-md-4">
+              <ProductItem name={p.name} price={p.price} image={p.image} />
           </div>
         ))}
-      </div>
+        </div>
     </>
   );
 };

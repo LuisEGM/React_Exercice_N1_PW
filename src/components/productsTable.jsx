@@ -41,9 +41,9 @@ const ProductsTable = () => {
             {products.map((p) => (
               <tr key={p.id}>
                 <th scope="row">{p.id}</th>
-                <td>{p.name}</td>
+                <td>{p.name || "Nombre de prueba"}</td>
                 <td>
-                  <img src={p.image} height="50" width="50" alt="img" />
+                  <img src={p.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU"} height="50" width="50" alt="img" />
                 </td>
                 <td>$ {p.price}</td>
                 <td>

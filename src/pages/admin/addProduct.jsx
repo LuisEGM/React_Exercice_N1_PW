@@ -11,6 +11,7 @@ const AddProduct = () => {
     changeProductName("")
     changeImage("")
     changePrice(0)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -23,10 +24,10 @@ const AddProduct = () => {
         </p>
       </div>
       <div className="row d-flex w-100 justify-content-around">
-        <div className="col-md-4">
+        <div className="col-md-4 ">
           <FormProduct type={"crear"} />
         </div>
-        <div className="col-sm-4">
+        <div className="col-md-4">
           <ProductItem price={price} name={productName} image={image} />
         </div>
       </div>
