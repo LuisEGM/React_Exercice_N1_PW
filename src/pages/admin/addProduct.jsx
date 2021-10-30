@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FormProduct from "../../components/formProduct";
 import ProductItem from "../../components/productItem";
 import { GlobalContext } from "../../context/globalContext";
@@ -6,6 +6,23 @@ import HeaderTest from "../../components/headerTest";
 
 const AddProduct = () => {
   const { changeProductName, changeImage, changePrice, price, productName, image } = useContext(GlobalContext);
+  
+  const [product, setProduct] = useState({name: "", price: 0, image: ""})
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["name"]: productName})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productName])
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["price"]: price})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [price])
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["image"]: image})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [image])
 
   useEffect(() => {
     changeProductName("")
@@ -28,7 +45,7 @@ const AddProduct = () => {
           <FormProduct type={"crear"} />
         </div>
         <div className="col-md-4">
-          <ProductItem price={price} name={productName} image={image} />
+          <ProductItem functionalButtons={false} product={product} />
         </div>
       </div>
     </>

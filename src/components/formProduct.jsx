@@ -3,23 +3,17 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/globalContext";
 
 const FormProduct = ({ type }) => {
-  // const [productName, setProductName] = useState("Nombre de inicial");
-  // const [image, setImage] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU");
-  // const [price, setPrice] = useState(0);
 
   const { addProduct, changePrice, changeImage, changeProductName, price, productName, image } = useContext(GlobalContext);
 
   const handleChange = (e) => {
     if (e.target.name === "productName") {
-        // setProductName(e.target.value)
         changeProductName(e.target.value)
     }
     if (e.target.name === "image") {
-        // setImage(e.target.value)
         changeImage(e.target.value)
     }
     if (e.target.name === "price") {
-        // setPrice(parseInt(e.target.value))
         changePrice(parseInt(e.target.value))
     }
   };

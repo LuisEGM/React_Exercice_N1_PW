@@ -1,12 +1,35 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import FormProduct from "../components/formProduct"
 import ProductItem from "../components/productItem"
 import { GlobalContext } from '../context/globalContext'
 
 const ModalEditar = () => {
 
-    const { price, productName, image, updateProduct } = useContext(GlobalContext);
-    
+  const { price, productName, image, updateProduct, productEdit } = useContext(GlobalContext);
+
+  const [product, setProduct] = useState({name: "", price: 0, image: ""})
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["name"]: productName})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productName])
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["price"]: price})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [price])
+  useEffect(() => {
+    // eslint-disable-next-line no-useless-computed-key
+    setProduct({...product, ["image"]: image})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [image])
+
+  useEffect(() => {
+    setProduct({name: productName, price: price, image: image})
+    console.log(product);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productEdit])
+
   return (
     <div
       className="modal fade"
@@ -26,7 +49,7 @@ const ModalEditar = () => {
           <div className="modal-body">
             <div className="row d-flex justify-content-around">
               <FormProduct type={"editar"} />
-              <ProductItem price={price} name={productName} image={image} />
+              <ProductItem functionalButtons={false} product={product} />
             </div>
           </div>
           <div className="modal-footer">
