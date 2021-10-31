@@ -100,7 +100,7 @@ export function appReducer(state, action) {
                 }
         
             }
-            
+            break
 
         default:
             return state
