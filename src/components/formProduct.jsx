@@ -2,6 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/globalContext";
 
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+
 const FormProduct = ({ type }) => {
 
   const { addProduct, changePrice, changeImage, changeProductName, price, productName, image } = useContext(GlobalContext);
@@ -23,6 +27,15 @@ const FormProduct = ({ type }) => {
     changeProductName("Nombre de inicial")
     changePrice(0)
     changeImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU")
+    toast.info('Se agrego un nuevo producto al carrito...!', {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   };
 
   return (

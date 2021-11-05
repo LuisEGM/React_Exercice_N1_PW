@@ -53,7 +53,7 @@ const ModalEditar = () => {
             </div>
           </div>
           <div className="modal-footer">
-            <button onClick={() => updateProduct()} data-dismiss="modal" type="button" className="btn btn-info" style={{width: '100%'}}>
+            <button onClick={() => {updateProduct()}} data-dismiss="modal" type="button" className="btn btn-info" style={{width: '100%'}}>
               Guardar cambios
             </button>
           </div>

@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 import { GlobalContext } from "../context/globalContext"
 import ModalEditar from './modalEditar'
 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 const ProductsTable = () => {
   const { products, deleteProduct, setProductEdit } = useContext(GlobalContext);
 
@@ -43,16 +46,28 @@ const ProductsTable = () => {
                 <th scope="row">{p.id}</th>
                 <td>{p.name || "Nombre de prueba"}</td>
                 <td>
-                  <img src={p.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU"} height="50" width="50" alt="img" />
+                  <img src={p.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU"} height="100%" width="40" alt="img" />
                 </td>
                 <td>$ {p.price}</td>
                 <td>
                   <button onClick={() => setProductEdit(p)} name="editar" data-toggle="modal" data-target="#myModal" type="button" className="btn btn-info btn-sm m-1">
                     Editar
                   </button>
-                  <button onClick={() => deleteProduct(p.id)} name="eliminar" type="button" className="btn btn-danger btn-sm m-1">
+                  <button onClick={() => {
+                    deleteProduct(p.id)
+                    toast.error(`El producto con id <${p.id}> fue eliminado`, {
+position: "bottom-left",
+autoClose: 3000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+});
+                  }} name="eliminar" type="button" className="btn btn-danger btn-sm m-1">
                     Eliminar
                   </button>
+                  <ToastContainer/>
                 </td>
               </tr>
             ))}

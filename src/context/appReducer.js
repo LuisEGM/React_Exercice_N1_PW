@@ -9,6 +9,20 @@ export const getTotalPagar = (carrito) => {
 export function appReducer(state, action) {
     console.log(state, action);
     switch (action.type) {
+
+        case "UPDATE_PRODUCT_LIST":
+            if (action.payload.match !== "") {
+                console.log("EL filter se refresca");
+                return {
+                    ...state, productsFilter: state.products.filter(p => p.name.toUpperCase().includes(action.payload.match.toUpperCase()))
+                }
+            }
+            else {
+                return {
+                    ...state, productsFilter: state.products
+                }
+            }
+
         case "ADD_PRODUCT":
             let product = {...action.payload.product, id: state.products.length+1 }
             console.log(product)

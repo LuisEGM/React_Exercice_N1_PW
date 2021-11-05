@@ -3,7 +3,7 @@ import { GlobalContext } from '../context/globalContext'
 
 const ProductItem = ({ product, functionalButtons }) => {
 
-    const { carrito, products, addProductToCarrito, updateQuantityProductInCarrito } = useContext(GlobalContext)
+    const { carrito, addProductToCarrito, updateQuantityProductInCarrito } = useContext(GlobalContext)
     const [activeButtons, setActiveButtons] = useState("")
 
     useEffect(() => {
@@ -32,9 +32,9 @@ const ProductItem = ({ product, functionalButtons }) => {
             <div className="modal-header pb-0 border-0">
                 <p>{product.name || "Nombre de prueba"}</p>
             </div>
-            <div className="modal-body pt-0">
+            <div className="modal-body pt-0" >
                 <h2 className="modal-title">$ {product.price || "000000"}</h2>
-                <img className="card-img-top" height="250" src={product.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU"} alt="img"/>
+                <img className="card-img-top" style={{ objectFit: 'cover', objectPosition: 'center' }} src={product.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU"} height="350" alt="img"/>
             </div>
             <div className="modal-footer border-0">
                 {wasAddedToCart() ? 

@@ -4,6 +4,7 @@ import { appReducer } from "./appReducer";
 
 const initialState = {
   products: productsInfo,
+  productsFilter: productsInfo,
   productName: "Nombre de inicial",
   price: 0,
   image:
@@ -62,6 +63,10 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "DELETE_PRODUCT_TO_CARRITO", payload: { productId } });
   };
 
+  const updateProductList = (match) => {
+    dispatch({ type: "UPDATE_PRODUCT_LIST", payload: { match }})
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -75,7 +80,8 @@ export const ContextProvider = ({ children }) => {
         updateProduct,
         addProductToCarrito,
         deleteProductToCarrito,
-        updateQuantityProductInCarrito
+        updateQuantityProductInCarrito,
+        updateProductList
       }}
     >
       {children}

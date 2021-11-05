@@ -6,7 +6,7 @@ const ViewProducts = () => {
   return (
     <>
       <HeaderTest />
-      <div className="row text-center pt-5 w-100">
+      <div className="row text-center w-100" style={{ paddingTop: '4rem' }} >
         <h1 style={{ fontSize: 35 }}>View products</h1>
         <p style={{ fontSize: 20 }}>Esta sera una lista de los productos</p>
         <ProductsTable />

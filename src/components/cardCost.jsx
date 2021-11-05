@@ -1,11 +1,24 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from "../context/globalContext";
 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const CardCost = () => {
 
   const { totalPagar, totalItems } = useContext(GlobalContext);
 
+    const handleClick = () => {
+      toast.success('Gracias por finalizar su compra...!', {
+        position: "bottom-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
 
     return (
         <div className="col-md-4" style={{ minHeight: '65vh'}} >
@@ -19,9 +32,10 @@ const CardCost = () => {
                 <p style={{ fontSize: '2rem' }} className="card-text">$ { totalPagar }</p>
             </div>
             <div className="card-footer">
-                <button data-dismiss="modal" type="button" className="btn btn-success" style={{width: '100%', marginBottom: 10}}>
-                  Finalizar compra
-                </button>
+                  <button onClick={handleClick} data-dismiss="modal" type="button" className="btn btn-success" style={{width: '100%', marginBottom: 10}}>
+                    Finalizar compra
+                  </button>
+                <ToastContainer/>
             </div>
             </div>
         </div>

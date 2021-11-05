@@ -112,8 +112,8 @@ const ProductsCart = () => {
                     p.image ||
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU"
                   }
-                  height="50"
-                  width="50"
+                  height="100%"
+                  width="40"
                   alt="img"
                 />
               </td>
