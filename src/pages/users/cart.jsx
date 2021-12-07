@@ -28,7 +28,7 @@ const Cart = () => {
                         <div className="w-100" >
                             <Link to="/products" >
                                 <div style={{ width: 150, margin: '50px auto 10px auto'}}>
-                                    <img style={{}} src={emptyCart} alt="cart_empty" width="150" height="150" />
+                                    <img src={emptyCart} alt="cart_empty" width="150" height="150" />
                                 </div>
                             </Link>
                             <p className="text-center" style={{ fontSize: '1.5rem'}}>Ups... tu carrito esta vacio</p>

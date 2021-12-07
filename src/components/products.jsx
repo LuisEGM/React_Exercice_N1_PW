@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import ProductItem from "./productItem";
-import { GlobalContext } from '../context/globalContext'
+import { GlobalContext } from '../context/globalContext';
+import storeEmpty from '../assets/store-empty.png';
 
 const Products = () => {
 
@@ -20,6 +21,7 @@ const Products = () => {
   }, [products, productsFilter])
   
   useEffect(() => {
+    console.log("Render de products", products);
     setProductsToList(products)      
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -57,11 +59,23 @@ const Products = () => {
         </div>
       </div>
       <div className="row px-3">
-        {productsToList.map((p, i) => (
-          <div key={i} className="col-md-4">
-              <ProductItem functionalButtons={true} product={p} />
-          </div>
-        ))}
+        {
+          productsToList.length > 0 ? (
+            productsToList.map((p, i) => (
+              <div key={i} className="col-md-4">
+                  <ProductItem functionalButtons={true} product={p} />
+              </div>
+            ))
+          ) :
+          (
+            <div className="w-100" >
+                <div style={{ width: 150, margin: '50px auto 10px auto'}}>
+                    <img src={storeEmpty} alt="cart_empty" width="150" height="150" />
+                </div>
+                <p className="text-center" style={{ fontSize: '1.5rem'}}>Sin productos en el catálogo...!</p>
+            </div>
+          )
+        }
         </div>
     </>
   );

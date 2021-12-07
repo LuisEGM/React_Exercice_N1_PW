@@ -32,7 +32,7 @@ export const productsInfo = [
     {
         "id": 6,
         "name": "Guayo phantom gt club fg/m - blanco",
-        "price": "8261",
+        "price": 8261,
         "image": "https://tennis.vteximg.com.br/arquivos/ids/1519254-275-420/image-f0848e35a1404a058699959145886d5f.jpg?v=637661025274200000"
     },
     {
