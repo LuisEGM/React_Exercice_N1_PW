@@ -1,18 +1,17 @@
 import { createContext, useReducer } from "react";
-import { productsInfo } from "../utils/productsInfo";
 import { appReducer } from "./appReducer";
 
 const initialState = {
-  products: productsInfo,
-  productsFilter: productsInfo,
-  productName: "Nombre de inicial",
+  products: [],
+  productsFilter: [],
+  productName: "Nombre inicial",
   price: 0,
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Sgaglb-AfOqGPKS8iW0qSUk99iflqqneNw&usqp=CAU",
   productEdit: {},
   carrito: [],
   totalPagar: 0,
-  totalItems: 0
+  totalItems: 0,
+  toastInfo: ""
 };
 
 export const GlobalContext = createContext(initialState);
@@ -24,6 +23,11 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "CHANGE_NAME", payload: { productName } });
   };
 
+  const changeToastInfo = (message) => {
+    console.log("REDUCER TOAST", message);
+    dispatch({ type: "CHANGE_TOAST_INFO", payload: { message } });
+  }
+
   const changeImage = (image) => {
     dispatch({ type: "CHANGE_IMAGE", payload: { image } });
   };
@@ -32,23 +36,11 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "CHANGE_PRICE", payload: { price } });
   };
 
-  const addProduct = (product) => {
-    dispatch({ type: "ADD_PRODUCT", payload: { product } });
-  };
-
-  const deleteProduct = (productId) => {
-    dispatch({ type: "DELETE_PRODUCT", payload: { productId } });
-  };
-
   const setProductEdit = (product) => {
     changeProductName(product.name);
     changeImage(product.image);
     changePrice(product.price);
     dispatch({ type: "SET_PRODUCT_EDIT", payload: { product } });
-  };
-
-  const updateProduct = () => {
-    dispatch({ type: "UPDATE_PRODUCT" });
   };
 
   const addProductToCarrito = (product) => {
@@ -64,24 +56,27 @@ export const ContextProvider = ({ children }) => {
   };
 
   const updateProductList = (match) => {
-    dispatch({ type: "UPDATE_PRODUCT_LIST", payload: { match }})
+    dispatch({ type: "UPDATE_PRODUCT_LIST", payload: { match }});
+  }
+
+  const loadProducts = (productList) => {
+    dispatch({ type: "LOAD_PRODUCTS", payload: { productList }});
   }
 
   return (
     <GlobalContext.Provider
       value={{
         ...state,
-        addProduct,
         changePrice,
         changeProductName,
         changeImage,
-        deleteProduct,
         setProductEdit,
-        updateProduct,
         addProductToCarrito,
         deleteProductToCarrito,
         updateQuantityProductInCarrito,
-        updateProductList
+        updateProductList,
+        loadProducts,
+        changeToastInfo
       }}
     >
       {children}

@@ -1,0 +1,8 @@
+INSERT INTO products (name, price, image) VALUES ('Tenis albor - azul', 390000, 'https://tennis.vteximg.com.br/arquivos/ids/1754814-275-420/image-74a4b12a07804c74a923e16b65a3b6f2.jpg?v=637715633477000000');
+INSERT INTO products (name, price, image) VALUES ('Tenis ice - negro', 255792, 'https://tennis.vteximg.com.br/arquivos/ids/1537993-275-420/image-fd8ec6fef6894feebbaead8a6c4bb18a.jpg?v=637702551510100000');
+INSERT INTO products (name, price, image) VALUES ('Tenis - tenis cuero entero', 510101, 'https://tennis.vteximg.com.br/arquivos/ids/1300229-275-420/zapatos-para-hombre--blanco.jpg?v=637421126968670000');
+INSERT INTO products (name, price, image) VALUES ('Tenis para hombre - tenis tela entero', 250999, 'https://tennis.vteximg.com.br/arquivos/ids/1300187-275-420/zapatos-para-hombre--negro.jpg?v=637421126780670000');
+INSERT INTO products (name, price, image) VALUES ('Tenis - tenis cuero entero', 175859, 'https://tennis.vteximg.com.br/arquivos/ids/1300239-275-420/zapatos-para-hombre--blanco.jpg?v=637421127020830000');
+INSERT INTO products (name, price, image) VALUES ('Guayo phantom gt club fg/m - blanco', 826119, 'https://tennis.vteximg.com.br/arquivos/ids/1519254-275-420/image-f0848e35a1404a058699959145886d5f.jpg?v=637661025274200000');
+INSERT INTO products (name, price, image) VALUES ('Guayo legend 8 club fg/mg - blanco', 201109, 'https://tennis.vteximg.com.br/arquivos/ids/1519077-275-420/image-d12a3861230046e5a0ca5b272c30e591.jpg?v=637661002360130000');
+INSERT INTO products (name, price, image) VALUES ('Tenis jordan jumpman 2021 - negro', 134999, 'https://tennis.vteximg.com.br/arquivos/ids/1518763-275-420/image-9d978da2119e4c25b396095e07eb71a4.jpg?v=637660995347500000');
