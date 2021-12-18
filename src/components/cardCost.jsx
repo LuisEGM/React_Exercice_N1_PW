@@ -10,6 +10,7 @@ const CardCost = () => {
 
     const handleClick = () => {
       toast.success('Gracias por finalizar su compra...!', {
+        theme: "colored",
         position: "bottom-left",
         autoClose: 3000,
         hideProgressBar: false,

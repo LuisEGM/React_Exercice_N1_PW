@@ -17,10 +17,12 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
     // deleteProduct(id)
     (async () => {
       try {
-        const result = await remove(id);
+        const accessToken = JSON.parse(localStorage.getItem("user")).access_token
+        const result = await remove(id, accessToken);
         console.log("DELETE PRODUCT => ", result.data);
         
         toast.error(`El producto con id <${id}> fue eliminado`, {
+          theme: "colored",
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -52,7 +54,7 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
           <div className="col-3 p-0">Tiene {products.length} en inventario</div>
           <div className="col-3 p-0">
             <Link to="/admin/add-product">
-              <button type="button" class="btn btn-success">
+              <button type="button" className="btn btn-success">
                 Agregar producto
                 <VscAdd />
               </button>
@@ -60,7 +62,7 @@ const ProductsTable = ({ reloadTriggerFunction, reloadTriggerValue }) => {
           </div>
         </div>
         {
-          products.length > 0 ? (<table class="table table-hover table-bordered table-sm w-100">
+          products.length > 0 ? (<table className="table table-hover table-bordered table-sm w-100">
             <thead
               style={{
                 background: "#161616",

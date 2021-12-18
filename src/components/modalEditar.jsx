@@ -36,7 +36,8 @@ const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
     if (!(productName === "" || price === 0 || price == null || isNaN(price) || image === "")) {
       (async () => {
         try {
-          const result = await update(productEdit.id, { name: productName, price: price, image: image });
+          const accessToken = JSON.parse(localStorage.getItem("user")).access_token;
+          const result = await update(productEdit.id, { name: productName, price: price, image: image }, accessToken);
           console.log("PRODUCTO ACTUALIZADO => ", result.data);
         } catch (error) {
           console.log(error);        
@@ -59,7 +60,7 @@ const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
         role="dialog"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Editar producto</h5>
@@ -69,8 +70,12 @@ const ModalEditar = ({ reloadTriggerFunction, reloadTriggerValue }) => {
             </div>
             <div className="modal-body">
               <div className="row d-flex justify-content-around">
-                <FormProduct type={"editar"} />
-                <ProductItem functionalButtons={false} product={product} />
+                <div className="col-md-6" style={{ paddingTop: '6rem', textAlign: 'left' }} >
+                  <FormProduct type={"editar"} />
+                </div>
+                <div className="col-md-6">
+                  <ProductItem functionalButtons={false} product={product} />
+                </div>
               </div>
             </div>
             <div className="modal-footer">

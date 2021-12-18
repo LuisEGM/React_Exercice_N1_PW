@@ -12,9 +12,9 @@ const Cart = () => {
 
     return (
         <>
-            <Header />
+            <Header location={"CART"} />
             <div className="container" >
-                <div className="row text-center" style={{ paddingTop: '4rem' }} >
+                <div className="row text-center" style={{ paddingTop: '7rem' }} >
                     <h1 style={{fontSize: 35}}>SHOPPING CART</h1>
                     <p style={{fontSize: 15}} >This is your shopping cart</p>
                 </div>
@@ -26,7 +26,7 @@ const Cart = () => {
                         </>
                     : 
                         <div className="w-100" >
-                            <Link to="/products" >
+                            <Link to="/store" >
                                 <div style={{ width: 150, margin: '50px auto 10px auto'}}>
                                     <img src={emptyCart} alt="cart_empty" width="150" height="150" />
                                 </div>

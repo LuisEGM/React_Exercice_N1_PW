@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import FormProduct from "../../components/formProduct";
 import ProductItem from "../../components/productItem";
 import { GlobalContext } from "../../context/globalContext";
-import HeaderTest from "../../components/headerTest";
+import HeaderAdmin from "../../components/headerAdmin";
 
 const AddProduct = () => {
   const { changeProductName, changeImage, changePrice, price, productName, image } = useContext(GlobalContext);
@@ -33,9 +33,9 @@ const AddProduct = () => {
 
   return (
     <>
-      <HeaderTest />
-      <div className="row text-center py-5 w-100" style={{ marginTop: '1.5rem' }}>
-        <h1 style={{ fontSize: 35 }}>Add product</h1>
+      <HeaderAdmin />
+      <div className="row text-center w-100" style={{ paddingTop: '7rem' }}>
+        <h1  style={{ fontSize: 35 }}>Añadir producto</h1>
         <p style={{ fontSize: 20 }}>
           Complete el formulario para agregar un nuevo producto
         </p>

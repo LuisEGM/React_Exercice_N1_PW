@@ -4,8 +4,8 @@ import Header from '../../components/header';
 const About = () => {
     return (
         <>
-            <Header />
-            <div className="container text-center" style={{ marginTop: '7rem' }}>
+            <Header location={"ABOUT"} />
+            <div className="container text-center" style={{ paddingTop: '7rem' }}>
                 <h1>Page about</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur amet sequi saepe dolorem sed? Quaerat deleniti est ipsa expedita dignissimos laudantium dolorem tenetur eius suscipit cupiditate, voluptates officia blanditiis ratione.
                 Architecto nostrum tempora perferendis unde praesentium, ea quasi quam, voluptatem ullam culpa nulla quaerat nesciunt doloribus illo officiis! Itaque iure expedita perferendis voluptatem. Quibusdam, fuga sapiente facilis ex autem aspernatur!

@@ -26,11 +26,11 @@ const Store = () => {
 
     return (
         <>
-            <Header />
+            <Header location={"STORE"} />
             <div className="container">
-                <div className="row text-center" style={{ paddingTop: '4rem' }} >
+                <div className="row text-center" style={{ paddingTop: '6rem' }} >
                     <h1 style={{fontSize: 45}}>STORE</h1>
-                    <p style={{fontSize: 20}} >This is the product catalog</p>
+                    <p style={{fontSize: 20}} >Este es el catálogo de productos</p>
                 </div>
                 { loader ? <Loader /> : <Products/> }
             </div>

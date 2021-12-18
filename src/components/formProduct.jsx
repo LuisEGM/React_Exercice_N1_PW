@@ -29,8 +29,9 @@ const FormProduct = ({ type }) => {
     if (!(productName === "" || price === 0 || price == null || isNaN(price) || image === "")) {
       (async () => {
         try {
-          // console.log({ name: productName, price: price, image: image});
-          const result = await create({ name: productName, price: price, image: image });
+          const accessToken = JSON.parse(localStorage.getItem("user")).access_token;
+          console.log(accessToken);
+          const result = await create({ name: productName, price: price, image: image }, accessToken);
           console.log("PRODUCTO CREADO => ", result.data);
         } catch (error) {
           console.log(error);
@@ -46,6 +47,7 @@ const FormProduct = ({ type }) => {
     }
     else {
       toast.warn('Asegurate de llenar todos los campos del formulario...!', {
+        theme: "colored",
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,

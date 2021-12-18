@@ -1,11 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
 import ProductsTable from "../../components/productsTable";
-import HeaderTest from "../../components/headerTest";
+import HeaderAdmin from "../../components/headerAdmin";
 import { GlobalContext } from '../../context/globalContext';
 import { getAll } from '../../services/productServices';
 import Loader from '../../components/loader';
 import { ToastContainer, toast } from 'react-toastify';
-
 
 const ViewProducts = () => {
   
@@ -32,6 +31,7 @@ const ViewProducts = () => {
           break;
         case "warn":
           toast.warn(info[1], {
+            theme: "colored",
             position: "top-right",
             autoClose: 2500,
             hideProgressBar: false,
@@ -63,10 +63,10 @@ const ViewProducts = () => {
   
   return (
     <>
-      <HeaderTest />
-      <div className="row text-center w-100" style={{ paddingTop: '4rem' }} >
-        <h1 style={{ fontSize: 35 }}>View products</h1>
-        <p style={{ fontSize: 20 }}>Esta sera una lista de los productos</p>
+      <HeaderAdmin />
+      <div className="row text-center w-100" style={{ paddingTop: '7rem' }} >
+        <h1 style={{ fontSize: 35 }}>Gestión de productos</h1>
+        <p style={{ fontSize: 20 }}>Desde aquí podrá gestionar los productos del catálogo</p>
       </div>
       { !loader ? (
         <div className="row text-center w-100" style={{ paddingTop: '1rem' }} >
